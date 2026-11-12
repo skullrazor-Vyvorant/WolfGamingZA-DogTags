@@ -9,3 +9,6 @@ profiles/
 storage_*/
 assets/*.blend1
 assets/*.blend2
+*.biprivatekey
+*.pem
+*.key

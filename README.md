@@ -10,6 +10,11 @@ server/client test. The runtime item temporarily uses vanilla paper geometry.
 [Download the unsigned development ZIP](https://github.com/skullrazor-Vyvorant/WolfGamingZA-DogTags/raw/refs/heads/main/releases/WGZA_DogTags-dev.zip).
 Its SHA-256 checksum is recorded in [releases/SHA256SUMS](releases/SHA256SUMS).
 
+For Steam distribution, use the [Workshop preparation guide](docs/WORKSHOP.md)
+and [Windows source/signing kit](https://github.com/skullrazor-Vyvorant/WolfGamingZA-DogTags/raw/refs/heads/main/releases/WGZA_DogTags-Workshop-kit.zip).
+The kit uses official DayZ Tools on Windows; it is not an already signed mod or
+a published Steam item. A Steam login and actual DayZ validation are still required.
+
 ## Implemented in source
 
 - A dedicated player attachment slot, added to the native inventory UI.
