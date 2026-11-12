@@ -1,0 +1,11 @@
+dist/
+__pycache__/
+*.pyc
+.venv/
+*.rpt
+*.log
+*.ADM
+profiles/
+storage_*/
+assets/*.blend1
+assets/*.blend2
