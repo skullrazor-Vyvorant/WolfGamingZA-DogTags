@@ -123,10 +123,11 @@ class WGZA_DogTag: ItemBase
         return vector.DistanceSq(requester.GetPosition(), GetPosition()) <= 9;
     }
 
-    override void OnRPC(PlayerIdentity sender, int rpcType, ParamsReadContext ctx)
+    // Preserve the engine's parameter names: Enforce overrides bind rpc_type.
+    override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
     {
-        super.OnRPC(sender, rpcType, ctx);
-        if (rpcType == WGZA_TagProtocol.REQUEST_RECORD && GetGame().IsServer())
+        super.OnRPC(sender, rpc_type, ctx);
+        if (rpc_type == WGZA_TagProtocol.REQUEST_RECORD && GetGame().IsServer())
         {
             if (!sender) return;
             Param1<int> request;
@@ -137,7 +138,7 @@ class WGZA_DogTag: ItemBase
             if (JsonFileLoader<WGZA_TagRecord>.MakeData(m_WGZARecord, json, error, false))
                 RPCSingleParam(WGZA_TagProtocol.RECEIVE_RECORD, new Param1<string>(json), true, sender);
         }
-        else if (rpcType == WGZA_TagProtocol.RECEIVE_RECORD && !GetGame().IsServer())
+        else if (rpc_type == WGZA_TagProtocol.RECEIVE_RECORD && !GetGame().IsServer())
         {
             Param1<string> response;
             if (!ctx.Read(response) || response.param1.Length() > 4096) return;
